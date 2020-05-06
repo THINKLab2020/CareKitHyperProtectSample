@@ -85,11 +85,11 @@ private extension OCKStore {
         nausea.instructions = "Tap the button below anytime you experience nausea."
 
         let kegelSchedule = OCKSchedule(composing: [OCKScheduleElement(start: beforeBreakfast, end: nil, interval: DateComponents(day: 2))])
-        var kegels = OCKTask(id: "kegels", title: "Kegel Exercises", carePlanUUID: nil, schedule: kegelSchedule)
-        kegels.impactsAdherence = true
-        kegels.instructions = "Perform kegel exercies"
+        var pushups = OCKTask(id: "pushups", title: "Pushups", carePlanUUID: nil, schedule: kegelSchedule)
+        pushups.impactsAdherence = true
+        pushups.instructions = "Perform pushup exercies"
 
-        addTasks([nausea, doxylamine, kegels], callbackQueue: .main, completion: nil)
+        addTasks([nausea, doxylamine, pushups], callbackQueue: .main, completion: nil)
 
         var contact1 = OCKContact(id: "jane", givenName: "Jane",
                                   familyName: "Daniels", carePlanUUID: nil)

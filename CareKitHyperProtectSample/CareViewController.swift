@@ -58,7 +58,7 @@ class CareViewController: OCKDailyPageViewController {
         prepare listViewController: OCKListViewController,
         for date: Date) {
 
-        let identifiers = ["doxylamine", "nausea", "kegels"]
+        let identifiers = ["doxylamine", "nausea", "pushups"]
         var query = OCKTaskQuery(for: date)
         query.ids = identifiers
         query.excludesTasksWithNoEvents = true
@@ -70,10 +70,10 @@ class CareViewController: OCKDailyPageViewController {
 
                 // Since the kegel task is only scheduled every other day, there will be cases
                 // where it is not contained in the tasks array returned from the query.
-                if let kegelsTask = tasks.first(where: { $0.id == "kegels" }) {
-                    let kegelsCard = OCKSimpleTaskViewController(task: kegelsTask, eventQuery: .init(for: date),
+                if let pushUpsTask = tasks.first(where: { $0.id == "pushups" }) {
+                    let pushUpCard = OCKSimpleTaskViewController(task: pushUpsTask, eventQuery: .init(for: date),
                                                                  storeManager: self.storeManager)
-                    listViewController.appendViewController(kegelsCard, animated: false)
+                    listViewController.appendViewController(pushUpCard, animated: false)
                 }
 
                 // Create a card for the doxylamine task if there are events for it on this day.
