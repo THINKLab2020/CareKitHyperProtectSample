@@ -31,13 +31,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import CareKit
 import Contacts
 import UIKit
+//import IBMHyperProtectSDK
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Manages synchronization of a CoreData store
+    // Uncomment the 2 areas below and the import statement above to include Hyper Protect SDK
     lazy var synchronizedStoreManager: OCKSynchronizedStoreManager = {
-        let store = OCKStore(name: "SampleAppStore", type: .inMemory)
+        //let remote = IBMMongoRemote()
+        let store = OCKStore(name: "SampleAppStore", type: .inMemory /*, remote: remote*/)
         store.populateSampleData()
         let manager = OCKSynchronizedStoreManager(wrapping: store)
         return manager
